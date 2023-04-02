@@ -37,7 +37,7 @@ public class AnimatorScript : MonoBehaviour
         //,Color.white);
 
         Vector3 up = Vector3.Slerp(transform.up,plyr.physBody.transform.up,upLerp);
-        if(plyr.physBody.velocity.magnitude>.1f)
+        if(plyr.physBody.velocity.magnitude>1f)
             transform.rotation = Quaternion.LookRotation(look,up);
 
     }

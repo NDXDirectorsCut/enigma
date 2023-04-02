@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public Vector3 referenceVector; 
+    public CharacterController charControl;
+    Player player;
     public float turnSpeed;
     public Transform rotTarget;
     public Transform posTarget;
@@ -15,17 +17,18 @@ public class CameraScript : MonoBehaviour
     public LayerMask collisionLayers;
     public float rotLerp;
     public float posLerp;
+    public float targetAngle;
     RaycastHit hit;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = charControl.player;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-
+        referenceVector = player.normal;
         switch(rotationMode)
         {
             case 1: // Copy
@@ -35,9 +38,11 @@ public class CameraScript : MonoBehaviour
             case 2: // LookAt
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(rotTarget.position-transform.position,referenceVector),rotLerp);
             float cHor = Input.GetAxis("CameraAxis");
-            Vector3 rotVector = new Vector3(0,cHor*turnSpeed,0);
+            /*Vector3 rotVector = new Vector3(0,cHor*turnSpeed,0);
             rotVector = Quaternion.FromToRotation(Vector3.up,referenceVector) * rotVector;
-            transform.rotation *= Quaternion.Euler(rotVector);
+            transform.rotation *= Quaternion.Euler(rotVector);*/
+            transform.RotateAround(rotTarget.position,referenceVector,cHor*turnSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.FromToRotation(transform.up,rotTarget.up) * transform.rotation * Quaternion.Euler(new Vector3(targetAngle,0,0)),0.05f) ; // 
             break;
 
         }
