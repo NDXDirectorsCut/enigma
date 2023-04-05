@@ -22,24 +22,44 @@ public class JumpTest : MonoBehaviour
 
     void Update()
     {
-
-        if(Input.GetButtonDown("Jump"))
+        if(canJump==true)
         {
-            startTime=Time.time;
-            jumpDir = player.normal;
-            rigidBody.velocity += jumpDir.normalized * startForce;
-            charControl.stickToGround = false;
+            if(Input.GetButtonDown("Jump"))
+            {
+                canJump = false;
+                jumped = true;
+                startTime=Time.time;
+                jumpDir = player.normal;
+                rigidBody.velocity += jumpDir.normalized * startForce;
+                charControl.stickToGround = false;
+            }
         }
-        if(Input.GetButton("Jump"))
+        if(jumped == true)
         {
-            if(Time.time-startTime < maxJumpTime)
+            if(Input.GetButton("Jump"))
             {
-                rigidBody.velocity += jumpDir.normalized * jumpForce * Time.deltaTime;
+                if(Time.time-startTime < maxJumpTime)
+                {
+                    rigidBody.velocity += jumpDir.normalized * jumpForce * Time.deltaTime;
+                }
             }
-            if(Time.time-startTime > .5f)
-            {
-                charControl.stickToGround = true;
-            }
+        }
+        if(Time.time-startTime > .1f)
+        {
+            charControl.stickToGround = true;
+        }
+        if(Input.GetButtonUp("Jump"))
+        {
+            jumped = false;
+            canJump = false;
+        }
+        if(player.characterState == 1 || player.characterState == 2)
+        {
+            canJump = true;
+        }
+        if(player.characterState == 3 )
+        {
+            canJump = false;
         }
     }
 }
