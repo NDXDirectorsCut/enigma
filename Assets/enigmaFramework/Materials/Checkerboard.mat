@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Checkerboard
-  m_Shader: {fileID: -6465566751694194690, guid: 58df5a90958c0ed98a3c6837c6330b5b,
+  m_Shader: {fileID: -6465566751694194690, guid: db37b3b88d593a876bd69609dd667c51,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -71,11 +71,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _H_Normal:
-        m_Texture: {fileID: 2800000, guid: e89890a65d5ff9ec1a219e0824e1b082, type: 3}
+        m_Texture: {fileID: 2800000, guid: a132982ba9fa5d6d78cd9cf928a01359, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _H_Roughness:
-        m_Texture: {fileID: 2800000, guid: 40c271141dcabf028a215214038de064, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1b6d3c6e9a9dad5e5b7ecdf9273fd8b0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _H_Specular:
@@ -115,11 +115,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _V_Normal:
-        m_Texture: {fileID: 2800000, guid: e89890a65d5ff9ec1a219e0824e1b082, type: 3}
+        m_Texture: {fileID: 2800000, guid: f6884344cce953b6797d89843d388b2d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _V_Roughness:
-        m_Texture: {fileID: 2800000, guid: 40c271141dcabf028a215214038de064, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0be45e4c9e36b3253b0f08cff85a8c00, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _V_Specular:
@@ -141,7 +141,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _Blend: 0
     - _BumpScale: 1
