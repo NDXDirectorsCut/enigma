@@ -1,0 +1,4 @@
+2003,enemy_01.png,128x128
+2004,gun01.png,64x64
+2005,gun_logo001.png,64x64
+2006,gun_num01.png,32x32

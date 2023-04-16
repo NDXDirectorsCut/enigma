@@ -7,100 +7,147 @@ public class CharacterController : MonoBehaviour
     public Player player;
     Transform pTransform;
     Rigidbody physBody;
+    CapsuleCollider charCol;
     public Vector3 axisInput {get; set;}
     RaycastHit hit;
 
     public float lerp;
     public bool stickToGround;
+    public bool forceDebug;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         pTransform = player.physBody.transform;
         physBody = player.physBody;    
+        charCol = pTransform.GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
         GetInput();
-        player.grounded = Physics.CheckCapsule(pTransform.position-(pTransform.up*lerp),pTransform.position+pTransform.up*.5f,.05f,player.collisionLayers);
-        if(Physics.Raycast(pTransform.position+pTransform.up*.25f,-pTransform.up,out hit,.5f,player.collisionLayers))
+        if(Input.GetKeyDown(KeyCode.Keypad0))
         {
-            if(Vector3.Angle(pTransform.up,hit.normal)<9000)
+            if(forceDebug == true)
             {
-                player.normal = Vector3.Slerp(player.normal,hit.normal,player.debugValue);
-                Vector3 localHit = pTransform.InverseTransformPoint(hit.point);
-                if(stickToGround==true)
-                    pTransform.position = hit.point;
+                forceDebug = false;
+                physBody.isKinematic = false;
+            }
+            else
+            {
+                forceDebug = true;
+                player.characterState = 0;
+                physBody.isKinematic = true;
+                player.normal = Vector3.up;
+                pTransform.position = new Vector3(Mathf.Floor(pTransform.position.x),Mathf.Floor(pTransform.position.y),Mathf.Floor(pTransform.position.z));
             }
         }
-        if(player.grounded == true)
+        if(player.characterState == 0)
         {
-            physBody.velocity = Quaternion.FromToRotation(pTransform.up,player.normal) * physBody.velocity;
-            pTransform.up = player.normal;
+            pTransform.position += axisInput*1;
+            if(Input.GetKey(KeyCode.Space))
+            {
+                pTransform.position += Vector3.up*1;
+            }
+            if(Input.GetKey(KeyCode.LeftControl))
+            {
+                pTransform.position += -Vector3.up*1;
+            }
+        }
+
+        if(forceDebug == false)
+        {
+            player.grounded = Physics.CheckCapsule(pTransform.position-(pTransform.up*lerp),pTransform.position+pTransform.up*.5f,.05f,player.collisionLayers);
+            if(Physics.Raycast(pTransform.position+pTransform.up*.25f,-pTransform.up,out hit,.5f,player.collisionLayers))
+            {
+                if(Vector3.Angle(pTransform.up,hit.normal)<90)
+                {
+                    player.normal = Vector3.Slerp(player.normal,hit.normal,player.debugValue);
+                    if(stickToGround==true)
+                        pTransform.position = hit.point;
+                }
+            }
+            if(player.grounded == true)
+            {
+                physBody.velocity = Quaternion.FromToRotation(pTransform.up,player.normal) * physBody.velocity;
+                pTransform.up = player.normal;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        
-        if(player.grounded == true)
+        if(forceDebug == false)
         {
-            float gravityAngle;
-            if(Vector3.Angle(Vector3.up,player.normal)<90)
+            if(player.grounded == true)
             {
-                gravityAngle = Vector3.Angle(Vector3.up,player.normal)/45;
-                gravityAngle = Mathf.Clamp(gravityAngle,0,1);
-                //physBody.AddForce(-Vector3.up * (Vector3.Angle(Vector3.up,player.normal)/90));
-            }
-            else
-            {
-                gravityAngle = (180-Vector3.Angle(Vector3.up,player.normal))/45;
-                gravityAngle = Mathf.Clamp(gravityAngle,0,1);
-                //physBody.AddForce( -Vector3.up * ((180-Vector3.Angle(Vector3.up,player.normal))/90) );
-            }
-            physBody.AddForce(-Vector3.up * 22.5f * gravityAngle);
-            if(physBody.velocity.magnitude<player.maxAccel)
-            {
-                physBody.velocity+= axisInput*player.acceleration;
-            }
-            if(axisInput.magnitude>0.1f)
-            {
-                float angleMultiplier = 1;//(1-(Vector3.Angle(physBody.velocity,axisInput)/160))*1.25f;
-                angleMultiplier = Mathf.Clamp(angleMultiplier,0,1);
-                //Debug.Log(angleMultiplier);
-                physBody.velocity = Vector3.Slerp(physBody.velocity,axisInput.normalized * physBody.velocity.magnitude,player.turnValue * angleMultiplier);
-            }
-            else
-            {
-                
-                if(physBody.velocity.magnitude>0.25f)
-                    physBody.velocity += -physBody.velocity.normalized * player.deceleration * (1-(Vector3.Angle(Vector3.up,player.normal)/90));
-                if(physBody.velocity.magnitude<0.25f)
-                    physBody.velocity = Vector3.Lerp(physBody.velocity,Vector3.zero,player.deceleration*(1-(Vector3.Angle(Vector3.up,player.normal)/90)));
-            }
+                float gravityAngle;
+                float accAngle = Mathf.Clamp(Vector3.Angle(axisInput,Vector3.up)/180,0,1);
+                //Debug.Log(accAngle);
 
-            if(physBody.velocity.magnitude >0.5f)
-            {
-                player.characterState = 2;
+                charCol.height = 1;
+                charCol.radius = .25f;
+                charCol.center = new Vector3(0,.5f,0);
+
+                if(Vector3.Angle(Vector3.up,player.normal)<90)
+                {
+                    gravityAngle = Vector3.Angle(Vector3.up,player.normal)/45;
+                    gravityAngle = Mathf.Clamp(gravityAngle,0,1);
+                    //physBody.AddForce(-Vector3.up * (Vector3.Angle(Vector3.up,player.normal)/90));
+                }
+                else
+                {
+                    gravityAngle = (180-Vector3.Angle(Vector3.up,player.normal))/45;
+                    gravityAngle = Mathf.Clamp(gravityAngle,0,1);
+                    //physBody.AddForce( -Vector3.up * ((180-Vector3.Angle(Vector3.up,player.normal))/90) );
+                }
+                physBody.AddForce(-Vector3.up * 22.5f * gravityAngle);
+                if(physBody.velocity.magnitude<player.maxAccel)
+                {
+                    physBody.velocity+= axisInput*player.acceleration*accAngle;
+                }
+                if(axisInput.magnitude>0.1f)
+                {
+                    float angleMultiplier = 1;//(1-(Vector3.Angle(physBody.velocity,axisInput)/160))*1.25f;
+                    angleMultiplier = Mathf.Clamp(angleMultiplier,0,1);
+                    //Debug.Log(angleMultiplier);
+                    physBody.velocity = Vector3.Slerp(physBody.velocity,axisInput.normalized * physBody.velocity.magnitude,player.turnValue * accAngle * angleMultiplier);
+                }
+                else
+                {
+                    
+                    if(physBody.velocity.magnitude>player.acceleration)
+                    {
+                        Vector3 decelVector = Vector3.ClampMagnitude(physBody.velocity,1);
+                        physBody.velocity += -decelVector * player.deceleration * (1-(Vector3.Angle(Vector3.up,player.normal)/90));
+                    }
+                    if(physBody.velocity.magnitude<=player.acceleration)
+                        physBody.velocity = Vector3.Lerp(physBody.velocity,Vector3.zero,(1-(Vector3.Angle(Vector3.up,player.normal)/90)));
+                }
+
+                if(physBody.velocity.magnitude >0.5f)
+                {
+                    player.characterState = 2;
+                }
+                else 
+                {
+                    player.characterState = 1;
+                }
             }
-            else 
+            else
             {
-                player.characterState = 1;
+                player.characterState = 3;
+                player.normal = Vector3.up;
+                pTransform.up = Vector3.Slerp(pTransform.up,Vector3.up,.2f);
+                physBody.velocity+= axisInput*player.airAcceleration;
+                physBody.AddForce(-Vector3.up*10);
+
+                charCol.center = new Vector3(0,.25f,0);
+                charCol.height = .5f;
+                charCol.radius = .25f;
             }
-        }
-        else
-        {
-            player.characterState = 3;
-            player.normal = Vector3.up;
-            pTransform.up = Vector3.Slerp(pTransform.up,Vector3.up,.2f);
-            physBody.velocity+= axisInput*player.airAcceleration;
-            physBody.AddForce(-Vector3.up*10);
         }
     }
-
-
-
 
 
     /*

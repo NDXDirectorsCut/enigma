@@ -31,6 +31,7 @@ public class JumpTest : MonoBehaviour
                 startTime=Time.time;
                 jumpDir = player.normal;
                 rigidBody.velocity += jumpDir.normalized * startForce;
+                rigidBody.transform.position += player.normal *.2f;
                 charControl.stickToGround = false;
             }
         }

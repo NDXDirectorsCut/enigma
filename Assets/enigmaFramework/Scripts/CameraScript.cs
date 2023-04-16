@@ -18,6 +18,7 @@ public class CameraScript : MonoBehaviour
     public float rotLerp;
     public float posLerp;
     public float targetAngle;
+    public float normalLerp;
     RaycastHit hit;
     // Start is called before the first frame update
     void Start()
@@ -26,9 +27,12 @@ public class CameraScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        referenceVector = player.normal;
+        if(Vector3.Angle(Vector3.up,player.normal)>0f)
+            referenceVector = Vector3.Lerp(referenceVector,player.normal,normalLerp*(player.physBody.velocity.magnitude/30));
+        else
+            referenceVector = Vector3.Lerp(referenceVector,Vector3.up,normalLerp);
         switch(rotationMode)
         {
             case 1: // Copy
@@ -38,10 +42,7 @@ public class CameraScript : MonoBehaviour
             case 2: // LookAt
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(rotTarget.position-transform.position,referenceVector),rotLerp);
             float cHor = Input.GetAxis("CameraAxis");
-            /*Vector3 rotVector = new Vector3(0,cHor*turnSpeed,0);
-            rotVector = Quaternion.FromToRotation(Vector3.up,referenceVector) * rotVector;
-            transform.rotation *= Quaternion.Euler(rotVector);*/
-            transform.RotateAround(rotTarget.position,referenceVector,cHor*turnSpeed);
+            transform.RotateAround(rotTarget.position,referenceVector,cHor*turnSpeed*Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.FromToRotation(transform.up,rotTarget.up) * transform.rotation * Quaternion.Euler(new Vector3(targetAngle,0,0)),0.05f) ; // 
             break;
 
