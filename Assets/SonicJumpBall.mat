@@ -14,7 +14,6 @@ Material:
   - _ALPHABLEND_ON
   - _COLOROVERLAY_ON
   - _EMISSION
-  - _FADING_ON
   - _NORMALMAP
   - _REQUIRE_UV2
   m_InvalidKeywords: []
@@ -77,8 +76,8 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistortionBlend: 1
     - _DistortionEnabled: 1
-    - _DistortionStrength: 200
-    - _DistortionStrengthScaled: 20
+    - _DistortionStrength: 5
+    - _DistortionStrengthScaled: 0.5
     - _DstBlend: 1
     - _EmissionEnabled: 1
     - _FlipbookMode: 1
@@ -91,7 +90,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
-    - _SoftParticlesEnabled: 1
+    - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 20
     - _SpecularHighlights: 1
@@ -102,6 +101,6 @@ Material:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 0.25226322, g: 0, b: 3.441591, a: 1}
-    - _SoftParticleFadeParams: {r: 20, g: -0.05263158, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 2.6651442, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

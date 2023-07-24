@@ -6,6 +6,7 @@ public class AnimatorScript2 : MonoBehaviour
 {
     Animator anim;
     public CharacterController characterController;
+    public JumpTest jumpScript;
     Player plyr;
     public Transform characterTransform;
     [Space(10)]
@@ -27,6 +28,7 @@ public class AnimatorScript2 : MonoBehaviour
         anim.SetInteger("CharacterState",plyr.characterState);
         anim.SetFloat("Velocity",plyr.physBody.velocity.magnitude);
         anim.SetFloat("UpVelo",localVelo.y);
+        anim.SetFloat("ForVelo",localVelo.x);
         transform.position = characterTransform.position + transform.up*offset.y + transform.right*offset.x + transform.forward*offset.z;
         if(plyr.axisInput.magnitude>0.1f)
         {
@@ -44,5 +46,15 @@ public class AnimatorScript2 : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(look,up);
         }
         //Debug.Log(transform.forward-yRot);
+
+        if(jumpScript.jumped == true)
+        {
+            anim.SetBool("Jumped",true);
+        }
+        if(jumpScript.canJump == true)
+        {
+            anim.SetBool("Jumped",false);
+        }
+        anim.SetFloat("JumpTime",Time.time - jumpScript.startTime);
     }
 }

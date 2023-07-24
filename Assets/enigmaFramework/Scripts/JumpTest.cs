@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JumpTest : MonoBehaviour
 {
-    float startTime;
+    public float startTime;
     public Rigidbody rigidBody;
     public CharacterController charControl;
     Player player;
@@ -58,7 +58,7 @@ public class JumpTest : MonoBehaviour
         {
             canJump = true;
         }
-        if(player.characterState == 3 )
+        if(player.characterState == 2 )
         {
             canJump = false;
         }
