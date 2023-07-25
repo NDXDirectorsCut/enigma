@@ -23,6 +23,8 @@ Material:
   m_Name: DirtGrass
   m_Shader: {fileID: -6465566751694194690, guid: 36dd96ca4834a1b67a0c125005bd42ba,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -32,6 +34,7 @@ Material:
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -275,7 +278,7 @@ Material:
     - _BUILTIN_ZWriteControl: 0
     - _Blend: 0
     - _Blend_Add: 0
-    - _Blend_Invert: 0
+    - _Blend_Invert: 1
     - _Blend_Multiply: 20
     - _BumpScale: 1
     - _ClearCoatMask: 0
