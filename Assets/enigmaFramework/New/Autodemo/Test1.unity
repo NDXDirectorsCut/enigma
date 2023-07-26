@@ -24666,26 +24666,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 751097326374626244, guid: 9e290322f31c215abac4b83ba861fcfc,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 751097326374626245, guid: 9e290322f31c215abac4b83ba861fcfc,
-        type: 3}
-      propertyPath: normalLerp
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 751097326374626245, guid: 9e290322f31c215abac4b83ba861fcfc,
-        type: 3}
-      propertyPath: transitionRate
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 751097326374626245, guid: 9e290322f31c215abac4b83ba861fcfc,
-        type: 3}
-      propertyPath: interpolateNormals
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
