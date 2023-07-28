@@ -5,7 +5,8 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class EnigmaPhysics : MonoBehaviour
 {
-    Rigidbody physBody;
+    [System.NonSerialized]
+    public Rigidbody physBody;
 
     [Header("Physics")]
         public Vector3 referenceVector = Vector3.up;
@@ -28,6 +29,8 @@ public class EnigmaPhysics : MonoBehaviour
         public float pointLerp;
         public Vector3 point;// { get; set; }
         Vector3 raycastPoint;
+        //[System.NonSerialized]
+        public bool groundStick = true;
 
     [Header("Movement")]
         [Header("Grounded")]
@@ -38,6 +41,8 @@ public class EnigmaPhysics : MonoBehaviour
         public float turnRate;
         [Header("Airborne")]
         public float airAcceleration;
+        [Space(5)]
+        public float airTurnRate;
 
         [Range(-5,5)]
         public float transitionRate;
@@ -56,7 +61,7 @@ public class EnigmaPhysics : MonoBehaviour
 
     void Update()
     {
-        if(Physics.Raycast(transform.position+transform.up*.5f,-transform.up,out hit,rayDistance))
+        if(Physics.Raycast(transform.position+transform.up*.525f,-transform.up,out hit,rayDistance))
         {
             if(Vector3.Angle(normal,interpolateNormals ? Vector3.Slerp(raycastNormal,InterpolateNormal(hit),normalLerp*Time.deltaTime*60) : Vector3.Slerp(raycastNormal,hit.normal,normalLerp*Time.deltaTime*60))<angleCutoff)
             {
@@ -67,7 +72,7 @@ public class EnigmaPhysics : MonoBehaviour
             //Debug.DrawRay(hit.point,hit.normal,Color.blue);
         }
         //Debug.Log(gravityMultiplier);
-        grounded = Physics.CheckCapsule(transform.position-(transform.up*.2f),transform.position+transform.up*.5f,.05f,collisionLayers); //Physics.CheckCapsule(transform.position+transform.up*.25f,transform.position-transform.up*.2f,.1f,collisionLayers);
+        grounded = Physics.CheckCapsule(transform.position-(transform.up*(rayDistance/2))+transform.up*.525f,transform.position+transform.up*.5f,.05f,collisionLayers); //Physics.CheckCapsule(transform.position+transform.up*.25f,transform.position-transform.up*.2f,.1f,collisionLayers);
 
         if(characterState_copy != characterState)
         {
@@ -93,7 +98,8 @@ public class EnigmaPhysics : MonoBehaviour
                 localPoint.x = 0;
                 localPoint.z = 0;
                 //Debug.Log(localPoint);
-                transform.position = Vector3.Lerp(transform.position,transform.TransformPoint(localPoint),pointLerp*Time.deltaTime*60);
+                if(groundStick == true)
+                    transform.position = Vector3.Lerp(transform.position,transform.TransformPoint(localPoint),pointLerp*Time.deltaTime*60);
                 
                 //physBody.velocity = Quaternion.FromToRotation(transform.up,normal) * physBody.velocity;
                 Vector3 velocityRight = Vector3.Cross(normal,physBody.velocity.normalized);
@@ -199,6 +205,18 @@ public class EnigmaPhysics : MonoBehaviour
         Vector3[] normals = mesh.normals;
         int[] triangles = mesh.triangles;
 
+        //Debug.Log(Vector3.ClampMagnitude(hit.transform.lossyScale,Mathf.Sqrt(3) ));
+        Vector3 scale = hit.transform.lossyScale;
+        float maxVal = Mathf.Max(Mathf.Max(scale.x, scale.y), scale.z);
+        //Debug.Log( );
+        scale = new Vector3(scale.x/maxVal,scale.y/maxVal,scale.z/maxVal);
+        //Debug.Log(scale);
+        scale = new Vector3(1/Mathf.Abs(scale.x),1/Mathf.Abs(scale.y),1/Mathf.Abs(scale.z)); //create vector to "correct" for scale
+        //This is only a bandaid solution and gets less accurate the more you skew a mesh, if you know how to get the actual normals after scaling please contact me at
+        // n.dx on Discord or NDXDirectorsCut on Twitter
+
+        //Debug.Log(scale);
+
         // Extract local space normals of the triangle we hit
         Vector3 n0 = normals[triangles[iHit.triangleIndex * 3 + 0]];
         Vector3 n1 = normals[triangles[iHit.triangleIndex * 3 + 1]];
@@ -207,17 +225,26 @@ public class EnigmaPhysics : MonoBehaviour
         // interpolate using the barycentric coordinate of the hitpoint
         Vector3 baryCenter = iHit.barycentricCoordinate;
 
+        n0 = Vector3.Scale(n0,scale); //scale each normal to the bandaid vector
+        n1 = Vector3.Scale(n1,scale);
+        n2 = Vector3.Scale(n2,scale);
+        
+        //baryCenter = Vector3.Scale(baryCenter,scale);
         // Use barycentric coordinate to interpolate normal
         Vector3 interpolatedNormal = n0 * baryCenter.x + n1 * baryCenter.y + n2 * baryCenter.z;
+        //interpolatedNormal = Vector3.Scale(interpolatedNormal,scale);
+        
         // normalize the interpolated normal
         interpolatedNormal = interpolatedNormal.normalized;
-
+        
+        
         // Transform local space normals to world space
         Transform hitTransform = iHit.collider.transform;
+        
         //Debug.DrawRay(iHit.point,interpolatedNormal,Color.green);
 
         interpolatedNormal = hitTransform.TransformDirection(interpolatedNormal);
-
+        //Debug.DrawRay(baryCenter,interpolatedNormal,Color.red);
         // Display with Debug.DrawLine
         return interpolatedNormal;
     }

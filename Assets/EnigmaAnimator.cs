@@ -9,6 +9,7 @@ public class EnigmaAnimator : MonoBehaviour
     [Range(0,1)]
     public float rotationLerp;
     public EnigmaPhysics enigmaPhysics;
+    public Jump jumpScript;
     Rigidbody physBody;
     Transform character;
     Animator anim;
@@ -19,6 +20,7 @@ public class EnigmaAnimator : MonoBehaviour
     void Start()
     {
         physBody = enigmaPhysics.transform.GetComponent<Rigidbody>();
+        jumpScript = enigmaPhysics.transform.GetComponent<Jump>();
         character = enigmaPhysics.transform;
         anim = transform.GetComponent<Animator>();
     }
@@ -28,6 +30,11 @@ public class EnigmaAnimator : MonoBehaviour
     {
         anim.SetFloat("Speed",physBody.velocity.magnitude);
         anim.SetInteger("Character State",enigmaPhysics.characterState);
+        anim.SetBool("Jumped",jumpScript.jumped);
+        Vector3 localVelocity = transform.InverseTransformDirection(physBody.velocity);
+        anim.SetFloat("VelocityVertical",localVelocity.y);
+        anim.SetFloat("VelocityHorizontal",localVelocity.x);
+        anim.SetFloat("VelocityForward",localVelocity.z);
         Vector3 posVector = Vector3.Lerp(transform.position,character.position,positionLerp);
         transform.position = posVector;
        // Debug.DrawRay(character.position,Vector3.Cross(enigmaPhysics.normal,physBody.velocity).normalized,Color.blue);

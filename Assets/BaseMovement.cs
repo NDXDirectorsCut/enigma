@@ -62,7 +62,9 @@ public class BaseMovement : MonoBehaviour
                 //Debug.Log(turnAngle);
                 break;
             case 2:
-
+                float airTurnAngle = Vector3.SignedAngle(axisInput,physBody.velocity,physScript.normal);
+                physBody.velocity = Quaternion.AngleAxis(-airTurnAngle * Time.deltaTime * physScript.airTurnRate,physScript.normal ) * physBody.velocity;
+                physBody.velocity += axisInput*physScript.airAcceleration * Time.deltaTime;
                 break;
         }
     }

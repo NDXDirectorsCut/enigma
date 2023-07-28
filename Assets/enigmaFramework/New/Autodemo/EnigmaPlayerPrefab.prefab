@@ -1086,7 +1086,7 @@ MonoBehaviour:
     m_Bits: 128
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 2
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -1232,6 +1232,7 @@ GameObject:
   - component: {fileID: 751097326374626244}
   - component: {fileID: 751097326374626245}
   - component: {fileID: 751097326374626242}
+  - component: {fileID: 8985196869141722028}
   m_Layer: 3
   m_Name: EnigmaCharacter
   m_TagString: Untagged
@@ -1290,16 +1291,16 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaTensor: {x: 0, y: 0, z: 0}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 254
   m_ImplicitCom: 1
-  m_ImplicitTensor: 1
+  m_ImplicitTensor: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 2
@@ -1326,14 +1327,15 @@ MonoBehaviour:
   characterState: 1
   rayDistance: 1
   interpolateNormals: 1
-  normalLerp: 0.7
+  normalLerp: 1
   normal: {x: 0, y: 0, z: 0}
-  angleCutoff: 45
+  angleCutoff: 360
   pointLerp: 1
   point: {x: 0, y: 0, z: 0}
-  acceleration: 4
+  groundStick: 1
+  acceleration: 5
   deceleration: 5
-  maxAcceleration: 20
+  maxAcceleration: 25
   turnRate: 5
   airAcceleration: 0
   transitionRate: 1.1
@@ -1352,6 +1354,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   referenceObject: {fileID: 751097325937843583}
   smoothInput: 0
+--- !u!114 &8985196869141722028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751097326374626247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448aa6f247bafd2bd8b4b9ced449bc7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enigmaPhysics: {fileID: 0}
+  canJump: 1
+  jumped: 0
+  jumpTime: 0.125
+  startForce: 5
+  jumpForce: 30
 --- !u!1 &751097326477685278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,6 +2368,7 @@ MonoBehaviour:
   positionLerp: 1
   rotationLerp: 1
   enigmaPhysics: {fileID: 751097326374626245}
+  jumpScript: {fileID: 0}
 --- !u!4 &912515415850867069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 487946657602134699, guid: 44268a1f6adac1b54a2d2c82dd7a2800,
