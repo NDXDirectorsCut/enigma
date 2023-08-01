@@ -54,19 +54,25 @@ public class EnigmaAnimator : MonoBehaviour
                 }
                 rightDir = Vector3.Cross(enigmaPhysics.normal,veloRef).normalized;
                 forwardDir = -Vector3.Cross(enigmaPhysics.normal,rightDir).normalized;
+                
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,enigmaPhysics.normal),rotationLerp);
                 break;
             case 2:
                 if(physBody.velocity.magnitude > 0.2f)
                 {
-                    /*Vector3*/ rightDir = Vector3.Cross(Vector3.up,physBody.velocity).normalized;
-                    /*Vector3*/ forwardDir = -Vector3.Cross(Vector3.up,rightDir);
+                    veloRef = physBody.velocity.normalized;
+                    /*Vector3*/ 
                     //Debug.DrawRay(character.position,forwardDir,Color.blue);
                     //transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,Vector3.up),rotationLerp);
                 }
+                rightDir = Vector3.Cross(Vector3.up,veloRef).normalized;
+                forwardDir = -Vector3.Cross(Vector3.up,rightDir);
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,enigmaPhysics.normal),rotationLerp);
                 break;
        }
-        
+        Debug.DrawRay(transform.position,veloRef,Color.yellow);
+        Debug.DrawRay(transform.position,forwardDir,Color.blue);
+        Debug.DrawRay(transform.position,rightDir,Color.red);
+        Debug.DrawRay(transform.position,enigmaPhysics.normal,Color.green);
     }
 }

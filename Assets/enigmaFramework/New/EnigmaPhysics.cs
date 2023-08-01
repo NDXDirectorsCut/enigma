@@ -52,6 +52,7 @@ public class EnigmaPhysics : MonoBehaviour
     
     
     public RaycastHit hit;
+    public Vector3 objStandRot;
 
     void Start()
     {
@@ -101,12 +102,19 @@ public class EnigmaPhysics : MonoBehaviour
                 if(groundStick == true)
                     transform.position = Vector3.Lerp(transform.position,transform.TransformPoint(localPoint),pointLerp*Time.deltaTime*60);
                 
+                if(hit.rigidbody != null)
+                {
+                    Debug.Log((objStandRot - hit.transform.eulerAngles) * Time.deltaTime*60);
+                    hit.rigidbody.angularVelocity = (objStandRot - hit.transform.eulerAngles) * Time.deltaTime*60;
+                    objStandRot = hit.transform.eulerAngles;
+                }
+
                 //physBody.velocity = Quaternion.FromToRotation(transform.up,normal) * physBody.velocity;
                 Vector3 velocityRight = Vector3.Cross(normal,physBody.velocity.normalized);
-                Debug.DrawRay(transform.position,velocityRight,Color.green);
+                //Debug.DrawRay(transform.position,velocityRight,Color.green);
                 Vector3 normalVelocity = Vector3.Cross(velocityRight,normal).normalized;
-                Debug.DrawRay(transform.position,normalVelocity * physBody.velocity.magnitude,Color.blue);
-                Debug.DrawRay(transform.position,physBody.velocity.normalized * physBody.velocity.magnitude,Color.cyan);
+                //Debug.DrawRay(transform.position,normalVelocity * physBody.velocity.magnitude,Color.blue);
+                //Debug.DrawRay(transform.position,physBody.velocity.normalized * physBody.velocity.magnitude,Color.cyan);
                 //Debug.DrawRay(transform.TransformPoint(physBody.centerOfMass),Vector3.Cross(physBody.velocity,referenceVector).normalized,Color.magenta);
                 physBody.velocity = normalVelocity * physBody.velocity.magnitude;
                 
@@ -121,7 +129,7 @@ public class EnigmaPhysics : MonoBehaviour
                 point = transform.position;
                 transform.up = Vector3.Slerp(transform.up,Vector3.up,.2f*Time.deltaTime*60);
                 Vector3 turnVector = Vector3.Cross(referenceVector,Vector3.Cross(physBody.velocity,referenceVector)).normalized;
-                Debug.DrawRay(transform.TransformPoint(physBody.centerOfMass),turnVector,Color.magenta);
+                //Debug.DrawRay(transform.TransformPoint(physBody.centerOfMass),turnVector,Color.magenta);
                 //transform.RotateAround(physBody.worldCenterOfMass,turnVector,Vector3.Angle(transform.up,referenceVector));
                 physBody.velocity += -referenceVector * gravityForce * Time.deltaTime;
 
