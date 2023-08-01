@@ -212,6 +212,7 @@ public class EnigmaPhysics : MonoBehaviour
         scale = new Vector3(scale.x/maxVal,scale.y/maxVal,scale.z/maxVal);
         //Debug.Log(scale);
         scale = new Vector3(1/Mathf.Abs(scale.x),1/Mathf.Abs(scale.y),1/Mathf.Abs(scale.z)); //create vector to "correct" for scale
+        Vector3 scaleFull = new Vector3(1/scale.x,1/scale.y,1/scale.z);
         //This is only a bandaid solution and gets less accurate the more you skew a mesh, if you know how to get the actual normals after scaling please contact me at
         // n.dx on Discord or NDXDirectorsCut on Twitter
 
@@ -229,7 +230,7 @@ public class EnigmaPhysics : MonoBehaviour
         n1 = Vector3.Scale(n1,scale);
         n2 = Vector3.Scale(n2,scale);
         
-        //baryCenter = Vector3.Scale(baryCenter,scale);
+        baryCenter = Vector3.Scale(baryCenter,scaleFull);
         // Use barycentric coordinate to interpolate normal
         Vector3 interpolatedNormal = n0 * baryCenter.x + n1 * baryCenter.y + n2 * baryCenter.z;
         //interpolatedNormal = Vector3.Scale(interpolatedNormal,scale);

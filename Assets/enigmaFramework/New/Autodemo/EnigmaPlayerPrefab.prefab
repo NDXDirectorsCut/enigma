@@ -972,7 +972,7 @@ Transform:
   - {fileID: 751097325937843582}
   - {fileID: 1001723763941727293}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751097325937843583
 GameObject:
@@ -1170,7 +1170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &751097326271582291
 Transform:
   m_ObjectHideFlags: 0
@@ -1303,7 +1303,7 @@ Rigidbody:
   m_ImplicitTensor: 0
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &751097326374626245
@@ -1325,7 +1325,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   characterState: 1
-  rayDistance: 1
+  rayDistance: 1.11
   interpolateNormals: 1
   normalLerp: 1
   normal: {x: 0, y: 0, z: 0}
@@ -1337,7 +1337,8 @@ MonoBehaviour:
   deceleration: 5
   maxAcceleration: 25
   turnRate: 5
-  airAcceleration: 0
+  airAcceleration: 2
+  airTurnRate: 1
   transitionRate: 1.1
   angleTransition: 1
 --- !u!114 &751097326374626242
@@ -1366,12 +1367,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448aa6f247bafd2bd8b4b9ced449bc7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enigmaPhysics: {fileID: 0}
+  enigmaPhysics: {fileID: 751097326374626245}
   canJump: 1
   jumped: 0
   jumpTime: 0.125
-  startForce: 5
-  jumpForce: 30
+  startForce: 4
+  jumpForce: 37
 --- !u!1 &751097326477685278
 GameObject:
   m_ObjectHideFlags: 0

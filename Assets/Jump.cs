@@ -64,5 +64,9 @@ public class Jump : MonoBehaviour
             enigmaPhysics.rayDistance = rayDistance;
             enigmaPhysics.groundStick = true;
         }
+        else
+        {
+            canJump = false;
+        }
     }
 }
