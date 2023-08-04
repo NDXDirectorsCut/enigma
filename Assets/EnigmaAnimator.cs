@@ -10,17 +10,22 @@ public class EnigmaAnimator : MonoBehaviour
     public float rotationLerp;
     public EnigmaPhysics enigmaPhysics;
     public Jump jumpScript;
+    public HomingAttack homingScript;
     Rigidbody physBody;
     Transform character;
     Animator anim;
     Vector3 veloRef;
     Vector3 rightDir;
     Vector3 forwardDir;
+    [Header("Debug")]
+    bool drawDebug;
+
     // Start is called before the first frame update
     void Start()
     {
         physBody = enigmaPhysics.transform.GetComponent<Rigidbody>();
         jumpScript = enigmaPhysics.transform.GetComponent<Jump>();
+        homingScript = enigmaPhysics.transform.GetComponent<HomingAttack>();
         character = enigmaPhysics.transform;
         anim = transform.GetComponent<Animator>();
     }
@@ -35,6 +40,8 @@ public class EnigmaAnimator : MonoBehaviour
         anim.SetFloat("VelocityVertical",localVelocity.y);
         anim.SetFloat("VelocityHorizontal",localVelocity.x);
         anim.SetFloat("VelocityForward",localVelocity.z);
+        if(homingScript != null)
+            anim.SetBool("Homing",homingScript.homing);
         Vector3 posVector = Vector3.Lerp(transform.position,character.position,positionLerp);
         transform.position = posVector;
        // Debug.DrawRay(character.position,Vector3.Cross(enigmaPhysics.normal,physBody.velocity).normalized,Color.blue);
@@ -58,7 +65,7 @@ public class EnigmaAnimator : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,enigmaPhysics.normal),rotationLerp);
                 break;
             case 2:
-                if(physBody.velocity.magnitude > 0.2f)
+                if(localVelocity.x > 0.2f || localVelocity.z > 0.2f)
                 {
                     veloRef = physBody.velocity.normalized;
                     /*Vector3*/ 
@@ -70,9 +77,12 @@ public class EnigmaAnimator : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,enigmaPhysics.normal),rotationLerp);
                 break;
        }
-        Debug.DrawRay(transform.position,veloRef,Color.yellow);
-        Debug.DrawRay(transform.position,forwardDir,Color.blue);
-        Debug.DrawRay(transform.position,rightDir,Color.red);
-        Debug.DrawRay(transform.position,enigmaPhysics.normal,Color.green);
+        if(drawDebug == true)
+        {
+            Debug.DrawRay(transform.position,veloRef,Color.yellow);
+            Debug.DrawRay(transform.position,forwardDir,Color.blue);
+            Debug.DrawRay(transform.position,rightDir,Color.red);
+            Debug.DrawRay(transform.position,enigmaPhysics.normal,Color.green);
+        }
     }
 }

@@ -30,7 +30,10 @@ public class EnigmaPhysics : MonoBehaviour
         public Vector3 point;// { get; set; }
         Vector3 raycastPoint;
         //[System.NonSerialized]
-        public bool groundStick = true;
+        bool groundStick = true;
+        public bool movingPlatformFix;
+        [Range(0,100)]
+        public float movingPlatformMultiplier;
 
     [Header("Movement")]
         [Header("Grounded")]
@@ -39,6 +42,11 @@ public class EnigmaPhysics : MonoBehaviour
         public float maxAcceleration;
         [Space(5)]
         public float turnRate;
+        [Space(10)]
+        [Range(0,100)]
+        public float upwardsSlopeMultiplier;
+        [Range(0,100)]
+        public float downwardsSlopeMultiplier;
         [Header("Airborne")]
         public float airAcceleration;
         [Space(5)]
@@ -53,6 +61,7 @@ public class EnigmaPhysics : MonoBehaviour
     
     public RaycastHit hit;
     public Vector3 objStandRot;
+    public Vector3 objStandPos;
 
     void Start()
     {
@@ -95,19 +104,29 @@ public class EnigmaPhysics : MonoBehaviour
 
                 float gravityMultiplier = Mathf.Clamp(Vector3.Angle(referenceVector,normal)/90,0,1);
                 
-                Vector3 localPoint = transform.InverseTransformPoint(raycastPoint);
-                localPoint.x = 0;
-                localPoint.z = 0;
+                
                 //Debug.Log(localPoint);
+                if(movingPlatformFix == true)
+                {
+                    if(hit.transform.gameObject.GetComponent<MovingPlatform>())
+                    {
+                        MovingPlatform platformScript = hit.transform.gameObject.GetComponent<MovingPlatform>();
+                        raycastPoint += -platformScript.posVelo*1;
+                        //physBody.velocity += -platformScript.posVelo*movingPlatformMultiplier; 
+                    }
+                    
+                }
+
+                Vector3 localPoint = transform.InverseTransformPoint(raycastPoint);
+                if(!hit.transform.gameObject.GetComponent<MovingPlatform>())
+                {
+                    localPoint.x = 0;
+                    localPoint.z = 0;
+                }
                 if(groundStick == true)
                     transform.position = Vector3.Lerp(transform.position,transform.TransformPoint(localPoint),pointLerp*Time.deltaTime*60);
                 
-                if(hit.rigidbody != null)
-                {
-                    Debug.Log((objStandRot - hit.transform.eulerAngles) * Time.deltaTime*60);
-                    hit.rigidbody.angularVelocity = (objStandRot - hit.transform.eulerAngles) * Time.deltaTime*60;
-                    objStandRot = hit.transform.eulerAngles;
-                }
+                
 
                 //physBody.velocity = Quaternion.FromToRotation(transform.up,normal) * physBody.velocity;
                 Vector3 velocityRight = Vector3.Cross(normal,physBody.velocity.normalized);
@@ -119,7 +138,15 @@ public class EnigmaPhysics : MonoBehaviour
                 physBody.velocity = normalVelocity * physBody.velocity.magnitude;
                 
                 transform.up = normal;
-                physBody.velocity += -referenceVector.normalized * gravityForce * gravityMultiplier * Time.deltaTime;
+                Vector3 gravityRight = Vector3.Cross(normal,referenceVector).normalized;
+                Vector3 normalGravity = Vector3.Cross(normal,gravityRight).normalized;
+                Debug.DrawRay(transform.position,gravityRight,Color.magenta );
+                Debug.DrawRay(transform.position,normalGravity,Color.red);
+                float angleSwitch = Vector3.Angle(normalVelocity,normalGravity)/180;
+                Debug.Log(angleSwitch); 
+                physBody.velocity += normalGravity * Time.deltaTime * Mathf.Lerp(downwardsSlopeMultiplier*gravityMultiplier,upwardsSlopeMultiplier*gravityMultiplier,angleSwitch);
+                //Debug.Log( Vector3.SignedAngle(physBody.velocity,-referenceVector,normal) );
+                //physBody.velocity += -referenceVector.normalized * gravityForce * gravityMultiplier * Time.deltaTime;
                 
                 break;
             case 2:

@@ -36,7 +36,7 @@ public class Jump : MonoBehaviour
             enigmaPhysics.characterState = 2;
             enigmaPhysics.rayDistance = 0.1f;
             enigmaPhysics.grounded = false;
-            enigmaPhysics.groundStick = false;
+            //enigmaPhysics.groundStick = false;
 
             enigmaPhysics.physBody.velocity += jumpDir * startForce;
             
@@ -45,7 +45,7 @@ public class Jump : MonoBehaviour
         
         if(jumped == true && Input.GetButton("Jump") && currentJumpTime < jumpTime)
         {
-            Debug.Log(currentJumpTime);
+            //Debug.Log(currentJumpTime);
             enigmaPhysics.rayDistance = 0.1f;
             enigmaPhysics.grounded = false;
             enigmaPhysics.physBody.velocity += jumpDir* jumpForce*Time.deltaTime;
@@ -54,7 +54,7 @@ public class Jump : MonoBehaviour
         if(currentJumpTime > jumpTime || Input.GetButtonUp("Jump"))
         {
             jumped = false;
-            enigmaPhysics.groundStick = true;
+            //enigmaPhysics.groundStick = true;
             enigmaPhysics.rayDistance = rayDistance;
         }
 
@@ -62,7 +62,7 @@ public class Jump : MonoBehaviour
         {
             canJump = true;
             enigmaPhysics.rayDistance = rayDistance;
-            enigmaPhysics.groundStick = true;
+            //enigmaPhysics.groundStick = true;
         }
         else
         {

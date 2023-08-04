@@ -52,8 +52,9 @@ public class BaseMovement : MonoBehaviour
                 if(axisInput.magnitude<0.2f)
                 {
                     physBody.velocity += -physBody.velocity.normalized * (1-gravityMultiplier) * physScript.deceleration * Time.deltaTime;
-                    physBody.velocity = Vector3.Lerp(physBody.velocity,Vector3.zero,0.0125f);
-                    if(physBody.velocity.magnitude<0.2f)
+                    if(physBody.velocity.sqrMagnitude<1f)
+                        physBody.velocity = Vector3.Lerp(physBody.velocity,Vector3.zero,0.0125f*Time.deltaTime*60);
+                    if(physBody.velocity.sqrMagnitude<0.2f*0.2f)
                     {
                         physBody.velocity = Vector3.zero;
                     }
