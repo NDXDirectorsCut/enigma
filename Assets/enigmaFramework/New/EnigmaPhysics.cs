@@ -43,9 +43,9 @@ public class EnigmaPhysics : MonoBehaviour
         [Space(5)]
         public float turnRate;
         [Space(10)]
-        [Range(0,100)]
+        //[Range(0,100)]
         public float upwardsSlopeMultiplier;
-        [Range(0,100)]
+        //[Range(0,100)]
         public float downwardsSlopeMultiplier;
         [Header("Airborne")]
         public float airAcceleration;
