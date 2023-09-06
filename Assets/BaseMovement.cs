@@ -18,17 +18,20 @@ public class BaseMovement : MonoBehaviour
     public GameObject referenceObject;
     public bool smoothInput;
     public Vector3 axisInput {get; set;}
+    public bool canMove;
 
     void Start()
     {
         physScript = transform.GetComponent<EnigmaPhysics>();
         physBody = transform.GetComponent<Rigidbody>();
+        Debug.Log(Time.fixedDeltaTime);
     }
 
     void Update()
     {
         characterState = physScript.characterState;
         GetInput();
+        /*
         switch(characterState)
         {
             //GetInput();
@@ -68,25 +71,54 @@ public class BaseMovement : MonoBehaviour
                 physBody.velocity += axisInput*physScript.airAcceleration * Time.deltaTime;
                 break;
         }
+        */
     }
 
     void FixedUpdate()
     {
-        switch(characterState)
-        {
-            //GetInput();
+        Vector3 clampedVelocity = Vector3.ClampMagnitude(physBody.velocity,1f);
 
-            case 0:
+            switch(characterState)
+            {
+                //GetInput();
 
-                break;
-            case 1:
-                
+                case 0:
 
-                break;
-            case 2:
+                    break;
+                case 1:
+                    if(canMove == true)
+                    {
+                        float turnAngle = Vector3.SignedAngle(axisInput,physBody.velocity,physScript.normal);
+                        physBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * physScript.turnRate , physScript.normal) * physBody.velocity;
+                    }
+                    float gravityMultiplier = Vector3.Angle(physScript.referenceVector, physScript.normal)/90;
+                    float accelMultiplier = Mathf.Clamp(Vector3.Angle(axisInput,physScript.referenceVector)/90,0,1);
+                    //Debug.Log(accelMultiplier);
+                    if(physBody.velocity.magnitude < physScript.maxAcceleration && canMove == true )
+                    {
+                        physBody.velocity += axisInput*physScript.acceleration.Evaluate(physBody.velocity.magnitude/physScript.softSpeedCap) * accelMultiplier * Time.fixedDeltaTime;
+                    }
 
-                break;
-        }
+                    if(axisInput.magnitude<0.2f)
+                    {
+                        physBody.velocity += -clampedVelocity * (1-gravityMultiplier) * physScript.deceleration * Time.fixedDeltaTime;
+                        if(physBody.velocity.sqrMagnitude<1f)
+                            physBody.velocity = Vector3.Lerp(physBody.velocity,Vector3.zero,0.1f);
+                        if(physBody.velocity.sqrMagnitude<0.2f*0.2f)
+                        {
+                            physBody.velocity = Vector3.zero;
+                        }
+                    }
+
+                    break;
+                case 2:
+
+                    float airTurnAngle = Vector3.SignedAngle(axisInput,physBody.velocity,physScript.normal);
+                    physBody.velocity = Quaternion.AngleAxis(-airTurnAngle * Time.fixedDeltaTime * physScript.airTurnRate,physScript.normal ) * physBody.velocity;
+                    physBody.velocity += axisInput*physScript.airAcceleration * Time.fixedDeltaTime;
+
+                    break;
+            }
     }
 
     void GetInput()

@@ -10,6 +10,8 @@ Material:
   m_Name: ForcesShadow_Skin
   m_Shader: {fileID: -6465566751694194690, guid: 432d808edf1fbb3dea3810d5899b815f,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -18,6 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -71,9 +74,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Fresnel: 1.4
+    - _Fresnel_Power: 1.5
+    - _Fresnel_Strength: 1.5
     - _GlossMapScale: 1
     - _Glossiness: 0.495
     - _GlossyReflections: 1
+    - _LOD: 4
     - _Metallic: 0
     - _Mode: 0
     - _Normal_Strength: 0.1
@@ -83,11 +89,13 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _Use_Reflection: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 0.5465582, b: 0, a: 1}
     - _Edge: {r: -8, g: 8, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Fresnel_Tint: {r: 5.992157, g: 0.9307144, b: 0, a: 0}
     - _Sheen_Color: {r: 1, g: 0.43333334, b: 0, a: 0}
     - _Skin_Color: {r: 1, g: 0.54509807, b: 0, a: 0}
     - _Tiling: {r: 128, g: 128, b: 0, a: 0}

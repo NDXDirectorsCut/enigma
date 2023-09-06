@@ -13,7 +13,8 @@ public class EnigmaAnimator : MonoBehaviour
     public HomingAttack homingScript;
     Rigidbody physBody;
     Transform character;
-    Animator anim;
+    [System.NonSerialized]
+    public Animator anim;
     Vector3 veloRef;
     Vector3 rightDir;
     Vector3 forwardDir;
@@ -31,7 +32,7 @@ public class EnigmaAnimator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         anim.SetFloat("Speed",physBody.velocity.magnitude);
         anim.SetInteger("Character State",enigmaPhysics.characterState);
@@ -42,8 +43,9 @@ public class EnigmaAnimator : MonoBehaviour
         anim.SetFloat("VelocityForward",localVelocity.z);
         if(homingScript != null)
             anim.SetBool("Homing",homingScript.homing);
-        Vector3 posVector = Vector3.Lerp(transform.position,character.position,positionLerp);
-        transform.position = posVector;
+
+        //Vector3 posVector = ;
+        //Vector3.Lerp(transform.position,character.position,positionLerp);
        // Debug.DrawRay(character.position,Vector3.Cross(enigmaPhysics.normal,physBody.velocity).normalized,Color.blue);
        switch(enigmaPhysics.characterState)
        {
@@ -51,7 +53,8 @@ public class EnigmaAnimator : MonoBehaviour
 
                 break;
             case 1:
-                if(physBody.velocity.magnitude > 0.2f)
+            //Debug.Log(localVelocity);
+                if(Mathf.Abs(localVelocity.x) > 0.05f || Mathf.Abs(localVelocity.z) > 0.05f)
                 {
                     veloRef = physBody.velocity.normalized;
                     // /*Vector3*/ rightDir = Vector3.Cross(enigmaPhysics.normal,physBody.velocity).normalized;
@@ -65,9 +68,10 @@ public class EnigmaAnimator : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,enigmaPhysics.normal),rotationLerp);
                 break;
             case 2:
-                if(localVelocity.x > 0.2f || localVelocity.z > 0.2f)
+                if(Mathf.Abs(localVelocity.x) > 0.05f || Mathf.Abs(localVelocity.z) > 0.05f)
                 {
                     veloRef = physBody.velocity.normalized;
+
                     /*Vector3*/ 
                     //Debug.DrawRay(character.position,forwardDir,Color.blue);
                     //transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.LookRotation(forwardDir,Vector3.up),rotationLerp);
@@ -84,5 +88,6 @@ public class EnigmaAnimator : MonoBehaviour
             Debug.DrawRay(transform.position,rightDir,Color.red);
             Debug.DrawRay(transform.position,enigmaPhysics.normal,Color.green);
         }
+        transform.position = character.position;
     }
 }

@@ -7,6 +7,7 @@ public class Jump : MonoBehaviour
     public EnigmaPhysics enigmaPhysics;
     public bool canJump;
     public bool jumped;
+    public float minJumpTime;
     public float jumpTime;
     float startTime;
     public float startForce;
@@ -34,7 +35,7 @@ public class Jump : MonoBehaviour
             jumped = true;
             jumpDir = enigmaPhysics.normal;
             enigmaPhysics.characterState = 2;
-            enigmaPhysics.rayDistance = 0.1f;
+            enigmaPhysics.rayDistance = 0.25f;
             enigmaPhysics.grounded = false;
             //enigmaPhysics.groundStick = false;
 
@@ -43,24 +44,33 @@ public class Jump : MonoBehaviour
         }
         float currentJumpTime = Time.time - startTime;
         
-        if(jumped == true && Input.GetButton("Jump") && currentJumpTime < jumpTime)
+        if(jumped == true && Input.GetButton("Jump") && currentJumpTime < jumpTime && currentJumpTime > minJumpTime)
         {
             //Debug.Log(currentJumpTime);
-            enigmaPhysics.rayDistance = 0.1f;
+            //enigmaPhysics.rayDistance = 0.25f;
+            jumped = true;
             enigmaPhysics.grounded = false;
             enigmaPhysics.physBody.velocity += jumpDir* jumpForce*Time.deltaTime;
             
         }
-        if(currentJumpTime > jumpTime || Input.GetButtonUp("Jump"))
+
+        if(currentJumpTime > minJumpTime)
         {
-            jumped = false;
-            //enigmaPhysics.groundStick = true;
             enigmaPhysics.rayDistance = rayDistance;
         }
 
+        if(currentJumpTime > jumpTime || !Input.GetButton("Jump") && currentJumpTime > minJumpTime)
+        {
+            jumped = false;
+
+            //enigmaPhysics.groundStick = true;
+            //enigmaPhysics.rayDistance = rayDistance;
+        }
+        
         if(enigmaPhysics.grounded == true)
         {
             canJump = true;
+            jumped = false;
             enigmaPhysics.rayDistance = rayDistance;
             //enigmaPhysics.groundStick = true;
         }

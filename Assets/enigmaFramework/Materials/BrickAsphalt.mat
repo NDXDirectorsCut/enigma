@@ -23,7 +23,7 @@ Material:
   m_Name: BrickAsphalt
   m_Shader: {fileID: -6465566751694194690, guid: 36dd96ca4834a1b67a0c125005bd42ba,
     type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: 56f738d553868dd45acad20be9f2a92c, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -78,26 +78,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: 119269b2cbd74c526835f9cbd6a25439, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Front_Blend_Height:
         m_Texture: {fileID: 2800000, guid: 9e2b52f6a5d9dda7e8906e89731de5d0, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -138,22 +118,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9e2b52f6a5d9dda7e8906e89731de5d0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Right_Blend_Height:
         m_Texture: {fileID: 2800000, guid: 9e2b52f6a5d9dda7e8906e89731de5d0, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -174,20 +138,8 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9e2b52f6a5d9dda7e8906e89731de5d0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Top_Blend_Height:
-        m_Texture: {fileID: 2800000, guid: 5a804c380dcde023092fd0dd1f3ff2d4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Top_Diffuse:
-        m_Texture: {fileID: 2800000, guid: 5b7410904b2fe2f04b79f69463ac3c3f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Top_Metallic:
         m_Texture: {fileID: 2800000, guid: 26102e0a721a1fbd39c7af65724f645a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Top_Normal:
-        m_Texture: {fileID: 2800000, guid: 4170cf0fde0ff3889a00cddbe1ff3a05, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Top_Roughness:
@@ -196,54 +148,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BUILTIN_AlphaClip: 0
-    - _BUILTIN_Blend: 0
-    - _BUILTIN_CullMode: 2
-    - _BUILTIN_DstBlend: 0
-    - _BUILTIN_QueueControl: 0
-    - _BUILTIN_QueueOffset: 0
-    - _BUILTIN_SrcBlend: 1
-    - _BUILTIN_Surface: 0
-    - _BUILTIN_ZTest: 4
-    - _BUILTIN_ZWrite: 1
-    - _BUILTIN_ZWriteControl: 0
-    - _Blend_Add: 0
-    - _Blend_Invert: 0
-    - _BumpScale: 1
-    - _Clearcoat_Smoothness: 0
-    - _Cutoff: 0.5
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
-    - _Mode: 0
     - _Normal_Strength: -1
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
     - _Smooth_Rough: 0.608
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
     - _Texture_Blend: 4.6
-    - _UVSec: 0
-    - _Use_Object_Rotation: 0
-    - _Use_Object_Space: 0
-    - _ZWrite: 1
     m_Colors:
-    - _Back_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Back_Size: {r: 0.17, g: 0.17, b: 0, a: 0}
-    - _Bottom_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Bottom_Size: {r: 0.17, g: 0.17, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Front_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Front_Size: {r: 0.17, g: 0.17, b: 0, a: 0}
-    - _Left_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Left_Size: {r: 0.17, g: 0.17, b: 0, a: 0}
-    - _Right_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Right_Size: {r: 0.17, g: 0.17, b: 0, a: 0}
-    - _Top_Color: {r: 0, g: 0, b: 0, a: 0}
     - _Top_Size: {r: 0.17, g: 0.17, b: 0, a: 0}
   m_BuildTextureStacks: []
