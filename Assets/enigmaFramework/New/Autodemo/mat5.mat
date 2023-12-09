@@ -23,15 +23,18 @@ Material:
   m_Name: mat5
   m_Shader: {fileID: -6465566751694194690, guid: 3650068a3aea833a0a65a8707f543884,
     type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -83,7 +86,7 @@ Material:
     - _BUILTIN_Surface: 0
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 1
-    - _BUILTIN_ZWriteControl: 0
+    - _BUILTIN_ZWriteControl: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

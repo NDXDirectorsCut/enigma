@@ -43,7 +43,16 @@ public class JiggleScript : MonoBehaviour
         Vector3 pos = Additive ? transform.position : startPos;
         Quaternion rot = Additive ? transform.rotation : startRot;
         float time = Time.time + offset;
-        transform.position = pos + (sinPos*Mathf.Sin(time*sinPosSpeed)) + (cosPos*Mathf.Cos(time*cosPosSpeed));
-        transform.rotation = rot * Quaternion.Euler(sinRot*Mathf.Sin(time*sinRotSpeed))* Quaternion.Euler(cosRot*Mathf.Cos(time*cosRotSpeed));
+        if(transform.GetComponent<Rigidbody>() == null)
+        {
+            transform.position = pos + (sinPos*Mathf.Sin(time*sinPosSpeed)) + (cosPos*Mathf.Cos(time*cosPosSpeed));
+            transform.rotation = rot * Quaternion.Euler(sinRot*Mathf.Sin(time*sinRotSpeed))* Quaternion.Euler(cosRot*Mathf.Cos(time*cosRotSpeed));
+        }
+        else
+        {
+            Rigidbody physBody = transform.GetComponent<Rigidbody>();
+            physBody.position = pos + (sinPos*Mathf.Sin(time*sinPosSpeed)) + (cosPos*Mathf.Cos(time*cosPosSpeed));
+            physBody.MoveRotation(rot * Quaternion.Euler(sinRot*Mathf.Sin(time*sinRotSpeed))* Quaternion.Euler(cosRot*Mathf.Cos(time*cosRotSpeed)));
+        }
     }
 }

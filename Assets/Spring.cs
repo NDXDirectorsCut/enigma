@@ -9,6 +9,7 @@ public class Spring : MonoBehaviour
     public float force;
     public bool lockPosition;
     public bool yLock;
+    public bool changeNormal;
     public bool lockVelocity;
     public bool lockInput;
     public float lockInputTime;
@@ -43,6 +44,11 @@ public class Spring : MonoBehaviour
                 enigmaPhysics.characterState = 2;
                 //enigmaPhysics.rayDistance = 0f;
                 enigmaPhysics.grounded = false;
+                if(changeNormal == true)
+                {
+                    touch.transform.up = transform.up;
+                    //enigmaPhysics.normal = transform.up;
+                }
             }
             
             if(lockPosition == true)

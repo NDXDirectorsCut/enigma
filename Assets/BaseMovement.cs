@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 /* Character State Reference List:
 
@@ -10,10 +11,10 @@ using UnityEngine;
     
 */
 
-public class BaseMovement : MonoBehaviour
+public class BaseMovement : NetworkBehaviour
 {
     Rigidbody physBody;
-    EnigmaPhysics physScript;
+    public EnigmaPhysics physScript;
     int characterState;
     public GameObject referenceObject;
     public bool smoothInput;
@@ -89,7 +90,10 @@ public class BaseMovement : MonoBehaviour
                     if(canMove == true)
                     {
                         float turnAngle = Vector3.SignedAngle(axisInput,physBody.velocity,physScript.normal);
-                        physBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * physScript.turnRate , physScript.normal) * physBody.velocity;
+                        //Debug.Log();
+                        //float multiplier = (2 - Mathf.Clamp(Vector3.Angle(physBody.velocity,axisInput)/90,0,2))/2;
+                        //Debug.Log(multiplier);
+                        physBody.velocity = Quaternion.AngleAxis(-turnAngle * Time.fixedDeltaTime * physScript.turnRate /* multiplier*/ , physScript.normal) * physBody.velocity;
                     }
                     float gravityMultiplier = Vector3.Angle(physScript.referenceVector, physScript.normal)/90;
                     float accelMultiplier = Mathf.Clamp(Vector3.Angle(axisInput,physScript.referenceVector)/90,0,1);
@@ -99,7 +103,7 @@ public class BaseMovement : MonoBehaviour
                         physBody.velocity += axisInput*physScript.acceleration.Evaluate(physBody.velocity.magnitude/physScript.softSpeedCap) * accelMultiplier * Time.fixedDeltaTime;
                     }
 
-                    if(axisInput.magnitude<0.2f)
+                    if(axisInput.magnitude<0.2f || canMove == false )
                     {
                         physBody.velocity += -clampedVelocity * (1-gravityMultiplier) * physScript.deceleration * Time.fixedDeltaTime;
                         if(physBody.velocity.sqrMagnitude<1f)
@@ -127,6 +131,8 @@ public class BaseMovement : MonoBehaviour
         float ver = smoothInput ? Input.GetAxis("Vertical") : Input.GetAxisRaw("Vertical");
         axisInput = new Vector3(hor,0,ver);
         axisInput = Quaternion.FromToRotation(referenceObject.transform.up,physScript.normal) * referenceObject.transform.TransformDirection(axisInput);
+        axisInput = Vector3.ClampMagnitude(axisInput,1);
+
         Debug.DrawRay(transform.position,axisInput,Color.yellow);
     }
 }

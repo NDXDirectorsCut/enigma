@@ -18,7 +18,7 @@ public class HomingAttack : MonoBehaviour
     void Start()
     {
         enigmaPhysics = gameObject.GetComponent<EnigmaPhysics>();
-        
+        origGravity = enigmaPhysics.gravityForce;
     }
 
     // Update is called once per frame

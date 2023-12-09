@@ -33,7 +33,7 @@ Material:
     - _Fresnel_Power: 1.6
     - _Fresnel_Strength: 0.6
     - _LOD: 3
-    - _Normal_Strength: 1.73
+    - _Normal_Strength: 1.7
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &4171902081141717977

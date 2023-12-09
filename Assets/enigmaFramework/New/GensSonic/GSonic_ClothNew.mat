@@ -108,12 +108,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Fresnel: 1
-    - _Fresnel_Power: 1.6
-    - _Fresnel_Strength: 4
+    - _Fresnel_Power: 1.4
+    - _Fresnel_Strength: 3
     - _GlossMapScale: 1
     - _Glossiness: 0.438
     - _GlossyReflections: 1
-    - _LOD: 3
+    - _LOD: 4
     - _Metallic: 0
     - _Mode: 0
     - _Normal_Strength: 1
