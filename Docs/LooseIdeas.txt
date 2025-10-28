@@ -1,0 +1,10 @@
+Enigma is an open-source 3d engine with an Entity-component-system.
+It's primary goal is to facilitate open-source game development and give full control to the developer, allowing them to create better experiences for the end user while also providing them with a familiar interface and workflow.
+While it's primarily designed with game-development in mind, it's loose and versatile architecture allows it to be used as a base to create any kind of 3D or 2D software.
+Both the engine, editor and scripting are ran entirely in C++, rendering is done in OpenGL (with plans for Vulkan integration later down the line)
+
+Main logic runs under the Fixed Loop (FixedUpdate)
+Display/Graphics run under the Dynamic (per frame) Loop (Update)
+
+the Editor along with any Game created with it are powered by the same engine library (/Enigma)
+
