@@ -1,12 +1,10 @@
-[submodule "thirdparty/SDL"]
-	path = thirdparty/SDL
+[submodule "External/SDL"]
+	path = External/SDL
 	url = https://github.com/libsdl-org/SDL.git
-[submodule "thirdparty/glad"]
-	path = thirdparty/glad
-	url = https://github.com/Dav1dde/glad.git
-[submodule "thirdparty/imgui"]
-	path = thirdparty/imgui
+	branch = SDL2
+[submodule "External/imgui"]
+	path = External/imgui
 	url = https://github.com/ocornut/imgui.git
-[submodule "thirdparty/miniaudio"]
-	path = thirdparty/miniaudio
+[submodule "External/miniaudio"]
+	path = External/miniaudio
 	url = https://github.com/mackron/miniaudio.git
