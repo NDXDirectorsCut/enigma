@@ -1,20 +1,21 @@
+#define SDL_main_HANDLED
 #include <SDL.h>
 #include <iostream>
 #include <limits.h>
 
-constexpr const char* EDITOR_VERSION = "0.0.1";
 constexpr const char* ENGINE_VERSION = "No Enigma Runtime Found";
 int n;
 
 void StartupPrint()
 {
-    std::cout<<std::endl<<"Engine Version: "<<ENGINE_VERSION<<std::endl<<"Editor Version: "<<EDITOR_VERSION;
+    std::cout<<std::endl<<"Engine Version: "<<ENGINE_VERSION<<std::endl;
 }
 
-int main()
+int main(int argc, char*argv[])
 {
     StartupPrint();
 
+    std::cout<<"Running SDL Window Test"<<std::endl;
     SDL_Window *window = NULL;
     if( SDL_Init(SDL_INIT_VIDEO != 0) )
     {
@@ -23,13 +24,14 @@ int main()
     }
 
     window = SDL_CreateWindow("Enigma Editor", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080, 0);
-
+    
     if(window == NULL)
     {
         std::cout<<std::endl<<"SDL window failed to initialise";
         return 1;
     }
 
+    SDL_Delay(6000);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
