@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <iostream>
+#include <limits.h>
 
 constexpr const char* EDITOR_VERSION = "0.0.1";
 constexpr const char* ENGINE_VERSION = "No Enigma Runtime Found";
@@ -29,7 +30,6 @@ int main()
         return 1;
     }
 
-    SDL_Delay(60);
     SDL_DestroyWindow(window);
     SDL_Quit();
 
