@@ -1,13 +1,13 @@
-if (NOT EXISTS "/home/n/Documents/GitHub/enigma/Binaries/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/home/n/Documents/GitHub/enigma/Binaries/install_manifest.txt\"")
-endif(NOT EXISTS "/home/n/Documents/GitHub/enigma/Binaries/install_manifest.txt")
+if (NOT EXISTS "C:/Users/rares/Documents/GitHub/enigma/Binaries/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"C:/Users/rares/Documents/GitHub/enigma/Binaries/install_manifest.txt\"")
+endif(NOT EXISTS "C:/Users/rares/Documents/GitHub/enigma/Binaries/install_manifest.txt")
 
-file(READ "/home/n/Documents/GitHub/enigma/Binaries/install_manifest.txt" files)
+file(READ "C:/Users/rares/Documents/GitHub/enigma/Binaries/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach (file ${files})
     message(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
     execute_process(
-        COMMAND /usr/bin/cmake -E remove "$ENV{DESTDIR}${file}"
+        COMMAND C:/Program Files/CMake/bin/cmake.exe -E remove "$ENV{DESTDIR}${file}"
         OUTPUT_VARIABLE rm_out
         RESULT_VARIABLE rm_retval
     )

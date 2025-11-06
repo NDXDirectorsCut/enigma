@@ -23,7 +23,7 @@ int main(int argc, char*argv[])
         return 1;
     }
 
-    window = SDL_CreateWindow("Enigma Editor", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1920, 1080, 0);
+    window = SDL_CreateWindow("Enigma Editor", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
     
     if(window == NULL)
     {
