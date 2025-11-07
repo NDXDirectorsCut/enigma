@@ -178,9 +178,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\rares\Documents\GitHub\enigma\Binaries\EnigmaEditor.vcxproj">
-      <Project>{A4AE2036-9F0A-3142-A083-687C5E71CBD9}</Project>
-      <Name>EnigmaEditor</Name>
+    <ProjectReference Include="C:\Users\rares\Documents\GitHub\enigma\Binaries\Enigma.vcxproj">
+      <Project>{4BA6674B-E32E-3CF3-A68A-65BDB72EC959}</Project>
+      <Name>Enigma</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\SDL2.vcxproj">
       <Project>{0B650C45-9C06-3D47-B2DA-25FBA689ADB2}</Project>

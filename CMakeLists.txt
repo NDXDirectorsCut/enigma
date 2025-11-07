@@ -19,16 +19,16 @@ target_include_directories(glad PUBLIC External/glad/include)
 add_subdirectory(External/SDL)
 
 
-file(GLOB_RECURSE EDITOR_SRC
-    Source/Editor/*.cpp
-    Source/Editor/*.h
+file(GLOB_RECURSE ENIGMA_SRC
+    Source/Runtime/*.cpp
+    Source/Runtime/*.h
 )
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/Archive)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/Library)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/)
 
-add_executable(EnigmaEditor ${EDITOR_SRC})
+add_executable(Enigma ${ENIGMA_SRC})
 
 # Dear ImGUI
 file(GLOB IMGUI_SRC
@@ -44,11 +44,11 @@ target_include_directories(imgui PUBLIC
     External/imgui/backends
 )
 
-target_link_libraries(EnigmaEditor PRIVATE glad SDL2 SDL2main imgui)
+target_link_libraries(Enigma PRIVATE glad SDL2 SDL2main)
 
 if(APPLE)
-    target_link_libraries(EnigmaEditor PRIVATE "-framework OpenGL")
+    target_link_libraries(Enigma PRIVATE "-framework OpenGL")
 elseif(UNIX)
     find_package(OpenGL REQUIRED)
-    target_link_libraries(EnigmaEditor PRIVATE OpenGL::GL dl pthread)
+    target_link_libraries(Enigma PRIVATE OpenGL::GL dl pthread)
 endif()
