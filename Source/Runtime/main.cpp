@@ -3,17 +3,28 @@
 #include <iostream>
 #include "Application/Application.h"
 
-constexpr const char* ENGINE_VERSION = "No Enigma Runtime Found";
 int n;
 
-void StartupPrint()
-{
-    std::cout<<std::endl<<"Engine Version: "<<ENGINE_VERSION<<std::endl;
-}
-
 int main(int argc, char* argv[])
-{
-    StartupPrint();
-    InitEnigma();
+{ 
+    if(!Init())
+    {
+        std::cout<<"Initialization Failed! \n";
+        return 1;
+    }
+
+    RenderImage();
+
+    SDL_Event e; bool quit = false; 
+    while( quit == false )
+    { 
+        while( SDL_PollEvent( &e ) )
+        {
+            if( e.type == SDL_QUIT ) 
+                quit = true; 
+        } 
+    }
+    
+    Quit();
     return 0;
 }

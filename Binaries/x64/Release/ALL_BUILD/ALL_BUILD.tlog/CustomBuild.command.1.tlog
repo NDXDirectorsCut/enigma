@@ -1,0 +1,10 @@
+^C:\USERS\RARES\DOCUMENTS\GITHUB\ENIGMA\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/rares/Documents/GitHub/enigma -BC:/Users/rares/Documents/GitHub/enigma/Binaries --check-stamp-file C:/Users/rares/Documents/GitHub/enigma/Binaries/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
