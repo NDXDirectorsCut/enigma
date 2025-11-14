@@ -1,0 +1,83 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "SDL2::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "SDL2-static::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "SDL2_test::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "EnigmaEditor::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "SDL2main::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "glad::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "imgui::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"orderDependencies" : 
+	[
+		{
+			"id" : "SDL2::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "SDL2-static::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "SDL2_test::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "EnigmaEditor::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "SDL2main::@654b518596e2d635a86b"
+		},
+		{
+			"id" : "glad::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "imgui::@6890427a1f51a3e7e1df"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

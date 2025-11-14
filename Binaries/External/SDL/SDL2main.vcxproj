@@ -78,12 +78,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-debug\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-debug\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
       </ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
@@ -99,14 +98,16 @@
       <UseFullPaths>false</UseFullPaths>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=33;SDL_BUILD_MICRO_VERSION=0;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=33;SDL_BUILD_MICRO_VERSION=0;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-debug\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-debug\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-debug\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-debug\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -119,7 +120,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-release\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-release\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -145,10 +146,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=33;SDL_BUILD_MICRO_VERSION=0;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-release\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-release\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-release\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-release\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -161,7 +162,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-minsizerel\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-minsizerel\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
@@ -187,10 +188,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=33;SDL_BUILD_MICRO_VERSION=0;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-minsizerel\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-minsizerel\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-minsizerel\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-minsizerel\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -203,12 +204,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-relwithdebinfo\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-relwithdebinfo\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <BufferSecurityCheck></BufferSecurityCheck>
       <CallingConvention></CallingConvention>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
       </ExceptionHandling>
       <FloatingPointModel></FloatingPointModel>
@@ -224,14 +224,16 @@
       <UseFullPaths>false</UseFullPaths>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=33;SDL_BUILD_MICRO_VERSION=0;NDEBUG;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
       <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;SDL_BUILD_MAJOR_VERSION=2;SDL_BUILD_MINOR_VERSION=33;SDL_BUILD_MICRO_VERSION=0;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-relwithdebinfo\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-relwithdebinfo\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-relwithdebinfo\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include-config-relwithdebinfo\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include\SDL2;C:\Users\rares\Documents\GitHub\enigma\Binaries\External\SDL\include;C:\Users\rares\Documents\GitHub\enigma\External\glad\include;C:\Users\rares\Documents\GitHub\enigma\External\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

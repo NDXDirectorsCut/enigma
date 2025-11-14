@@ -1,0 +1,828 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Git::Git::@654b518596e2d635a86b",
+					"jsonFile" : "target-Git__Git-Debug-649cbc6efd0b61d5d2b9.json",
+					"name" : "Git::Git",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl-build-options::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl-build-options-Debug-60368b416d4cb40b3f83.json",
+					"name" : "sdl-build-options",
+					"projectIndex" : 1
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"build" : "External/SDL",
+					"jsonFile" : "directory-External.SDL-Debug-a18707be9334c843187f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "External/SDL",
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Enigma",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "SDL2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-d1bb0686f9ee12c58d4b.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@654b518596e2d635a86b",
+					"jsonFile" : "target-ALL_BUILD-Debug-cfa41483e15a63915c64.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "EnigmaEditor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EnigmaEditor-Debug-0f4e0c222925a56065c8.json",
+					"name" : "EnigmaEditor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-Debug-2e3bf5ef6e06fa659003.json",
+					"name" : "SDL2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2-static::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-static-Debug-87efa65ae95cc3047a87.json",
+					"name" : "SDL2-static",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2_test::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2_test-Debug-0a7cf6f94a269d57254b.json",
+					"name" : "SDL2_test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2main::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2main-Debug-593b95c8d3d54d2a5c4b.json",
+					"name" : "SDL2main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-4c8fc2ea73e64b4ace07.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "glad::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glad-Debug-a3412783a36580ab4604.json",
+					"name" : "glad",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "imgui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-imgui-Debug-6b289357a6e50c5a93ff.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl_headers_copy::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl_headers_copy-Debug-611d4bd45d04a72e131f.json",
+					"name" : "sdl_headers_copy",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@654b518596e2d635a86b",
+					"jsonFile" : "target-uninstall-Debug-2795414d69b680178f12.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Git::Git::@654b518596e2d635a86b",
+					"jsonFile" : "target-Git__Git-Release-649cbc6efd0b61d5d2b9.json",
+					"name" : "Git::Git",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl-build-options::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl-build-options-Release-60368b416d4cb40b3f83.json",
+					"name" : "sdl-build-options",
+					"projectIndex" : 1
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Release-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"build" : "External/SDL",
+					"jsonFile" : "directory-External.SDL-Release-a18707be9334c843187f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "External/SDL",
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Enigma",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "SDL2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-d1bb0686f9ee12c58d4b.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@654b518596e2d635a86b",
+					"jsonFile" : "target-ALL_BUILD-Release-cfa41483e15a63915c64.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "EnigmaEditor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EnigmaEditor-Release-04b1db534eb60a6c33ac.json",
+					"name" : "EnigmaEditor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-Release-fd796e6e512462a8df15.json",
+					"name" : "SDL2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2-static::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-static-Release-8c38102f1a69f45cdb51.json",
+					"name" : "SDL2-static",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2_test::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2_test-Release-9a1087373e982f449928.json",
+					"name" : "SDL2_test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2main::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2main-Release-4c04272ba9b02422e3ae.json",
+					"name" : "SDL2main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-4c8fc2ea73e64b4ace07.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "glad::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glad-Release-5c13405d95f2c3178396.json",
+					"name" : "glad",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "imgui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-imgui-Release-7f25d0fcfe2a820ba96f.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl_headers_copy::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl_headers_copy-Release-611d4bd45d04a72e131f.json",
+					"name" : "sdl_headers_copy",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@654b518596e2d635a86b",
+					"jsonFile" : "target-uninstall-Release-2795414d69b680178f12.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Git::Git::@654b518596e2d635a86b",
+					"jsonFile" : "target-Git__Git-MinSizeRel-649cbc6efd0b61d5d2b9.json",
+					"name" : "Git::Git",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl-build-options::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl-build-options-MinSizeRel-60368b416d4cb40b3f83.json",
+					"name" : "sdl-build-options",
+					"projectIndex" : 1
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-MinSizeRel-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"build" : "External/SDL",
+					"jsonFile" : "directory-External.SDL-MinSizeRel-a18707be9334c843187f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "External/SDL",
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Enigma",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "SDL2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-d1bb0686f9ee12c58d4b.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@654b518596e2d635a86b",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-cfa41483e15a63915c64.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "EnigmaEditor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EnigmaEditor-MinSizeRel-d7589c82db9de9c745fe.json",
+					"name" : "EnigmaEditor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-MinSizeRel-d0aa7dcd1b57ba114901.json",
+					"name" : "SDL2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2-static::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-static-MinSizeRel-74483c2be3c6e1308df2.json",
+					"name" : "SDL2-static",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2_test::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2_test-MinSizeRel-817b008af2677b94ba63.json",
+					"name" : "SDL2_test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2main::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2main-MinSizeRel-f97385fd652516ace348.json",
+					"name" : "SDL2main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-4c8fc2ea73e64b4ace07.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "glad::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glad-MinSizeRel-6908e053a7ad4ca97c90.json",
+					"name" : "glad",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "imgui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-imgui-MinSizeRel-fd1bb0bb5ba72f37b262.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl_headers_copy::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl_headers_copy-MinSizeRel-611d4bd45d04a72e131f.json",
+					"name" : "sdl_headers_copy",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@654b518596e2d635a86b",
+					"jsonFile" : "target-uninstall-MinSizeRel-2795414d69b680178f12.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		},
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "Git::Git::@654b518596e2d635a86b",
+					"jsonFile" : "target-Git__Git-RelWithDebInfo-649cbc6efd0b61d5d2b9.json",
+					"name" : "Git::Git",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl-build-options::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl-build-options-RelWithDebInfo-60368b416d4cb40b3f83.json",
+					"name" : "sdl-build-options",
+					"projectIndex" : 1
+				}
+			],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-RelWithDebInfo-f6f22219c74102c3da70.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"build" : "External/SDL",
+					"jsonFile" : "directory-External.SDL-RelWithDebInfo-a18707be9334c843187f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "External/SDL",
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Enigma",
+					"targetIndexes" : 
+					[
+						0,
+						2,
+						7,
+						8,
+						9
+					]
+				},
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "SDL2",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						3,
+						4,
+						5,
+						6,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-d1bb0686f9ee12c58d4b.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ALL_BUILD::@654b518596e2d635a86b",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-cfa41483e15a63915c64.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "EnigmaEditor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-EnigmaEditor-RelWithDebInfo-f44ccef405a373dfed29.json",
+					"name" : "EnigmaEditor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-RelWithDebInfo-1a206c1c0a7617325e0f.json",
+					"name" : "SDL2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2-static::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2-static-RelWithDebInfo-0c9d2a78e07580b3a08f.json",
+					"name" : "SDL2-static",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2_test::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2_test-RelWithDebInfo-721ec527534edc7f03d3.json",
+					"name" : "SDL2_test",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SDL2main::@654b518596e2d635a86b",
+					"jsonFile" : "target-SDL2main-RelWithDebInfo-25c90c99af98259b485e.json",
+					"name" : "SDL2main",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-4c8fc2ea73e64b4ace07.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "glad::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glad-RelWithDebInfo-b8e23c4e79cfccf49d44.json",
+					"name" : "glad",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "imgui::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-imgui-RelWithDebInfo-ccc2eb6d08d66a116d9a.json",
+					"name" : "imgui",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "sdl_headers_copy::@654b518596e2d635a86b",
+					"jsonFile" : "target-sdl_headers_copy-RelWithDebInfo-611d4bd45d04a72e131f.json",
+					"name" : "sdl_headers_copy",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "uninstall::@654b518596e2d635a86b",
+					"jsonFile" : "target-uninstall-RelWithDebInfo-2795414d69b680178f12.json",
+					"name" : "uninstall",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/rares/Documents/GitHub/enigma/build",
+		"source" : "C:/Users/rares/Documents/GitHub/enigma"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

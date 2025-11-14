@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\rares\Documents\GitHub\enigma\build\CMakeFiles\7a285ae2d1f51ec47ad1d306ca1c3af9\uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\rares\Documents\GitHub\enigma\External\SDL\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\rares\Documents\GitHub\enigma\build\External\SDL\CMakeFiles\uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{27661FDD-FF6C-3F1B-A129-FC45D6ED5393}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
