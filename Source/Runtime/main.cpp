@@ -1,30 +1,24 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <iostream>
-#include "Application/Application.h"
+#include "Application/Application.hpp"
 
 int n;
 
 int main(int argc, char* argv[])
 { 
-    if(!Init())
+    Application application;
+    if(!application.Start())
     {
         std::cout<<"Initialization Failed! \n";
         return 1;
     }
 
-    RenderImage();
-
-    SDL_Event e; bool quit = false; 
-    while( quit == false )
-    { 
-        while( SDL_PollEvent( &e ) )
-        {
-            if( e.type == SDL_QUIT ) 
-                quit = true; 
-        } 
+    while(application.IsRunning())
+    {
+        application.Update();
+        application.FixedUpdate();
     }
-    
-    Quit();
+
     return 0;
 }
