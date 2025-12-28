@@ -7,39 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(PROJECT_PATH "" CACHE PATH "Project to build against Engima Runtime")
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Binaries/Archive)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Binaries/Library)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Binaries)
 
-# GLAD2
-add_library(glad STATIC
-    External/glad/src/gl.c 
-)
-target_include_directories(glad PUBLIC External/glad/include)
-
-# SDL
-add_subdirectory(
-    External/SDL
-    ${CMAKE_BINARY_DIR}/External/SDL )
-
-# Dear ImGUI
-file(GLOB IMGUI_SRC
-    External/imgui/*.cpp
-    External/imgui/backends/imgui_impl_sdl.cpp
-    External/imgui/backends/imgui_impl_opengl3.cpp
-)
-
-add_library(imgui STATIC ${IMGUI_SRC})
-
-target_include_directories(imgui PUBLIC
-    External/imgui
-    External/imgui/backends
-)
-
-file(GLOB_RECURSE RUNTIME_SRC
-    Source/Runtime/*.cpp
-    Source/Runtime/*.h
-)
 
 if(PROJECT_PATH)
 
@@ -50,6 +18,40 @@ if(PROJECT_PATH)
 
     string(REGEX MATCH "ApplicationName[ ]*=[ ]*\"?([^\"]*)\"?" _ "${PROJECT_INFO}")
     string(STRIP "${CMAKE_MATCH_1}" APPLICATION_NAME)
+
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/Archive)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/Library)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})
+
+    # GLAD2
+    add_library(glad STATIC
+        External/glad/src/gl.c 
+    )
+    target_include_directories(glad PUBLIC External/glad/include)
+
+    # SDL
+    add_subdirectory(
+        External/SDL
+        ${CMAKE_BINARY_DIR}/External/SDL )
+
+    # Dear ImGUI
+    file(GLOB IMGUI_SRC
+        External/imgui/*.cpp
+        External/imgui/backends/imgui_impl_sdl.cpp
+        External/imgui/backends/imgui_impl_opengl3.cpp
+    )
+
+    add_library(imgui STATIC ${IMGUI_SRC})
+
+    target_include_directories(imgui PUBLIC
+        External/imgui
+        External/imgui/backends
+    )
+
+    file(GLOB_RECURSE RUNTIME_SRC
+        Source/Runtime/*.cpp
+        Source/Runtime/*.h
+    )
 
     message(STATUS "Building ${PROJECT_NAME} against Enigma Runtime")
 

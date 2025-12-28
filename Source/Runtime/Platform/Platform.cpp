@@ -36,7 +36,7 @@ bool Platform::Init(const std::string& windowTitle, int width, int height)
         return false;
     }
 
-    SDL_Surface* surface = SDL_LoadBMP("content.vpk");
+    SDL_Surface* surface = SDL_LoadBMP("hl3_demo.vpk");
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
 
