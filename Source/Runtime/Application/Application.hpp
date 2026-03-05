@@ -16,6 +16,8 @@ class Application
         bool IsRunning() const { return running; }   
     private:
         Platform platform;
+        std::string applicationName = "Enigma Executable";
+        std::string creatorName = "";
         bool running = false;
 };
 

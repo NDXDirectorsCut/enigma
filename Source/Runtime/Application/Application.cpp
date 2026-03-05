@@ -3,7 +3,7 @@
 
 bool Application::Start()
 {
-    if(!platform.Init(APPLICATION_NAME))
+    if(!platform.Init(applicationName))
     {
         return false;
     }

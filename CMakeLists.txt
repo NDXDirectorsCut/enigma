@@ -16,11 +16,11 @@ if(PROJECT_PATH)
     string(REGEX MATCH "ProjectName[ ]*=[ ]*\"?([^\"]*)\"?" _ "${PROJECT_INFO}")
     string(STRIP "${CMAKE_MATCH_1}" PROJECT_NAME)
 
-    string(REGEX MATCH "ApplicationName[ ]*=[ ]*\"?([^\"]*)\"?" _ "${PROJECT_INFO}")
-    string(STRIP "${CMAKE_MATCH_1}" APPLICATION_NAME)
+    # string(REGEX MATCH "ApplicationName[ ]*=[ ]*\"?([^\"]*)\"?" _ "${PROJECT_INFO}")
+    # string(STRIP "${CMAKE_MATCH_1}" APPLICATION_NAME)
 
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/Archive)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/Library)
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}_Data/Archive)
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}_Data/Library)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})
 
     # GLAD2
@@ -34,35 +34,29 @@ if(PROJECT_PATH)
         External/SDL
         ${CMAKE_BINARY_DIR}/External/SDL )
 
-    # Dear ImGUI
-    file(GLOB IMGUI_SRC
-        External/imgui/*.cpp
-        External/imgui/backends/imgui_impl_sdl.cpp
-        External/imgui/backends/imgui_impl_opengl3.cpp
-    )
-
-    add_library(imgui STATIC ${IMGUI_SRC})
-
-    target_include_directories(imgui PUBLIC
-        External/imgui
-        External/imgui/backends
-    )
-
     file(GLOB_RECURSE RUNTIME_SRC
         Source/Runtime/*.cpp
         Source/Runtime/*.h
     )
+    list(FILTER RUNTIME_SRC EXCLUDE REGEX "Source/Runtime/executable\\.cpp$")
 
-    message(STATUS "Building ${PROJECT_NAME} against Enigma Runtime")
+    add_library(EnigmaRuntime SHARED ${RUNTIME_SRC})
+    target_link_libraries(EnigmaRuntime PRIVATE SDL2 SDL2main glad)
+    target_include_directories(EnigmaRuntime PRIVATE External/SDL/include)
 
-    file(GLOB_RECURSE PROJECT_SRC
-        ${PROJECT_PATH}/*.cpp
-        ${PROJECT_PATH}/*.h
-    )
+    message(STATUS "Building ${PROJECT_NAME} with Enigma Runtime version -.-.- ")
 
-    add_executable(${PROJECT_NAME} ${RUNTIME_SRC} ${PROJECT_SRC})
-    target_link_libraries(${PROJECT_NAME} PRIVATE 
-        SDL2 SDL2main glad imgui)    
+    #file(GLOB_RECURSE PROJECT_SRC
+    #    ${PROJECT_PATH}/*.cpp
+    #    ${PROJECT_PATH}/*.h
+    #)
+
+    #add_library(ProjectAssembly Shared ${PROJECT_SRC})
+
+    add_executable(${PROJECT_NAME} Source/Runtime/executable.cpp)
+    target_link_libraries(${PROJECT_NAME} PRIVATE EnigmaRuntime)
+    # target_link_libraries(${PROJECT_NAME} PRIVATE 
+        # SDL2 SDL2main glad)    
     
     target_compile_definitions(${PROJECT_NAME} PRIVATE
         PROJECT_NAME_STR="${PROJECT_NAME}"
