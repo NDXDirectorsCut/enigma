@@ -1,4 +1,4 @@
-[Bb]uild/
+/[Bb]uild
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -12,3 +12,4 @@ CTestTestfile.cmake
 _deps
 CMakeUserPresets.json
 .vscode/settings.json
+/Build
