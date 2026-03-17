@@ -14,10 +14,10 @@ class Application
         void Update();
         void FixedUpdate();
         bool IsRunning() const { return running; }   
+        std::string applicationName = "Enigma Application";
+        std::string creatorName = "";
     private:
         Platform platform;
-        std::string applicationName = "Enigma Executable";
-        std::string creatorName = "";
         bool running = false;
 };
 

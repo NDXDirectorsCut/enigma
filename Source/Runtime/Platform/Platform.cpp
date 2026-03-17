@@ -27,7 +27,7 @@ bool Platform::Init(const std::string& windowTitle, int width, int height)
         std::cout<<"Failed to create Window. \n Error: "<<SDL_GetError(); 
         return false;
     }
-
+    
     
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (!renderer)
