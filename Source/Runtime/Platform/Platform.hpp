@@ -15,10 +15,12 @@ class Platform
         }
 
         bool Init(const std::string& windowTitle, int width = 800, int height = 600);
+        bool SetWindowTitle(SDL_Window* window, std::string windowTitle);
         bool RenderImage();
         void Quit();
 
         SDL_Window* GetWindow() const { return window; }
+        std::string dataPath = "";
         
     private:
         SDL_Window* window = nullptr;

@@ -16,8 +16,11 @@ class Application
         bool IsRunning() const { return running; }   
         std::string applicationName = "Enigma Application";
         std::string creatorName = "";
+        std::string executableName = "";
+        std::string runtimeVersion = "";
     private:
         Platform platform;
+        int frameCount = 0;
         bool running = false;
 };
 

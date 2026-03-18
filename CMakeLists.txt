@@ -27,7 +27,7 @@ function(build_enigma_runtime)
     )
 
     add_library(EnigmaRuntime SHARED ${RUNTIME_SRC})
-    target_link_libraries(EnigmaRuntime PUBLIC SDL2 SDL2main glad)
+    target_link_libraries(EnigmaRuntime PUBLIC SDL2main SDL2 glad)
     target_include_directories(EnigmaRuntime PUBLIC Source/Runtime )
 endfunction()
 
@@ -51,9 +51,7 @@ if(PROJECT_PATH)
     #Build Runtime/Dependencies
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${EXECUTABLE_NAME}Data/Archive)
     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${EXECUTABLE_NAME}Data/Library)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${EXECUTABLE_NAME}Data/Library)
-    set(CMAKE_BUILD_RPATH "$ORIGIN")
-
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}/)
     build_enigma_runtime()
 
     #Build Project

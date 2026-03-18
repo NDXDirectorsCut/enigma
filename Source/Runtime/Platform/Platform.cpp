@@ -1,8 +1,6 @@
 #include "Platform.hpp"
 #include <iostream>
 
-///
-
 bool Platform::Init(const std::string& windowTitle, int width, int height)
 {
     screenWidth = width;
@@ -35,8 +33,10 @@ bool Platform::Init(const std::string& windowTitle, int width, int height)
         std::cout << "Renderer error: " << SDL_GetError();
         return false;
     }
+    std::string assetsPath = "Assets/";
+    std::string fileName = "hl3_demo.vpk";
 
-    SDL_Surface* surface = SDL_LoadBMP("hl3_demo.vpk");
+    SDL_Surface* surface = SDL_LoadBMP( (dataPath+assetsPath+fileName).c_str() );
     texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_FreeSurface(surface);
 
@@ -46,6 +46,12 @@ bool Platform::Init(const std::string& windowTitle, int width, int height)
         return false;
     }
 
+    return true;
+}
+
+bool Platform::SetWindowTitle(SDL_Window* window, std::string windowTitle)
+{
+    SDL_SetWindowTitle(window, windowTitle.c_str());
     return true;
 }
 
