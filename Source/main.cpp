@@ -3,8 +3,12 @@
 #include <string>
 int n;
 
+//Generic executable
+
 int main(int argc, char* argv[])
 { 
+    std::cout<<"\n";
+    
     Application application;
     application.applicationName = APPLICATION_NAME;
     application.executableName = EXECUTABLE_NAME;

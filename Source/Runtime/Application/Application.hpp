@@ -5,7 +5,7 @@
 #include <string>
 #include "../Platform/Platform.hpp"
 
-class Application
+class ENIGMA_API Application
 {
     public:
         Application() = default;

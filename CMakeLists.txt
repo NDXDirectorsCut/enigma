@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 project(Enigma LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+# set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 set(CMAKE_STATIC_LIBRARY_PREFIX "")
 
@@ -16,6 +16,9 @@ function(build_enigma_runtime)
     )
     target_include_directories(glad PUBLIC External/glad/include)
 
+    set(SDL_SHARED ON CACHE BOOL "" FORCE)
+    set(SDL_STATIC OFF CACHE BOOL "" FORCE)
+
     # SDL
     add_subdirectory(
         External/SDL
@@ -27,6 +30,7 @@ function(build_enigma_runtime)
     )
 
     add_library(EnigmaRuntime SHARED ${RUNTIME_SRC})
+
     target_link_libraries(EnigmaRuntime PUBLIC SDL2main SDL2 glad)
     target_include_directories(EnigmaRuntime PUBLIC Source/Runtime )
 endfunction()
@@ -60,8 +64,8 @@ if(PROJECT_PATH)
     message(STATUS "Building ${PROJECT_NAME}")
 
     add_executable(${EXECUTABLE_NAME} Source/main.cpp)
+
     target_link_libraries(${EXECUTABLE_NAME} PRIVATE EnigmaRuntime)
-    
     set_target_properties(${EXECUTABLE_NAME} PROPERTIES 
         BUILD_WITH_INSTALL_RPATH TRUE
         INSTALL_RPATH "$ORIGIN/${EXECUTABLE_NAME}Data/Library" 

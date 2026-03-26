@@ -1,35 +1,34 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
-#pragma once
 #include <string>
-#include <SDL.h>
+
+struct Surface
+{
+    void *handle;
+    int width;
+    int height;
+};
 
 class Platform
 {
     public:
-        Platform() = default;
-        ~Platform()
+        virtual ~Platform()
         {
             Quit();
         }
 
-        bool Init(const std::string& windowTitle, int width = 800, int height = 600);
-        bool SetWindowTitle(SDL_Window* window, std::string windowTitle);
-        bool RenderImage();
-        void Quit();
+        virtual bool Init(const std::string &initName) = 0;
+        virtual void Quit() = 0;
+        virtual Surface CreateSurface( const std::string& title, int width = 0, int height = 0) = 0;
+        virtual void DestroySurface(Surface *surface) = 0;
 
-        SDL_Window* GetWindow() const { return window; }
+        virtual void SetSurfaceTitle(Surface *surface, std::string title) = 0;
+        virtual void SetSurfaceSize(Surface *surface, int width, int height) = 0;
         std::string dataPath = "";
-        
+        std::string layer; // Current Layer Used (ex: SDL2)
     private:
-        SDL_Window* window = nullptr;
-        SDL_Renderer* renderer = nullptr;
-        SDL_Texture* texture = nullptr;
-
-        
-        int screenWidth = 800;
-        int screenHeight = 600;
+        std::vector<Surface*> surfaces;
 };
 
 #endif

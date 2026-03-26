@@ -1,6 +1,10 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-void GetKey();
+class Input
+{
+    public:
+    Input() = default;
+}
 
 #endif

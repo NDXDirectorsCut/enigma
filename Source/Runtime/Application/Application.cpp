@@ -9,29 +9,17 @@ bool Application::Start()
         return false;
     }
     
-    std::cout<<"\nStarted " + applicationName + "\n";
+    std::cout<<"\n"+"Started " + applicationName + "\n";
     std::cout<<"Created by: " + creatorName + "\n";
     std::cout<<"Enigma Runtime version: " + runtimeVersion + "\n";
+    std::cout<<"Data path: " + platform.dataPath + "\n";
     running = true;
     return true;
 }
 
 void Application::Update()
 {
-    SDL_Event e;
-    /*while (SDL_PollEvent(&e))
-    {
-        if (e.type == SDL_QUIT)
-        {
-            running = false;
-            return;
-        }
-    }*/
-    
-    platform.SetWindowTitle(platform.GetWindow(), std::to_string(frameCount));
 
-    //platform.RenderImage();
-    frameCount++;
 }
 
 void Application::FixedUpdate()
